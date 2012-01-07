@@ -37,13 +37,13 @@
     digitalWrite(MCLR_PIN, LOW);
     // Now #4D434851h should be sent to the board starting from MSB
     // in other words: #B2C2128A should be sent
-    Serial2.write(0xB2);
+    ICSPSendByteClock(0xB2);
     delay(10);
-    Serial2.write(0xC2);
+    ICSPSendByteClock(0xC2);
     delay(10);
-    Serial2.write(0x12);
+    ICSPSendByteClock(0x12);
     delay(10);
-    Serial2.write(0x8A);
+    ICSPSendByteClock(0x8A);
     delay(10);
     // set MCLR PIN
     digitalWrite(MCLR_PIN, HIGH);
