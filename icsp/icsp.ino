@@ -4,7 +4,8 @@
   const int MCLR_PIN  = 1;
   const int PGD_PIN   = 2;
   const int PGC_PIN   = 3;
-  
+ 
+ typedef unsigned long DWORD; 
   void setup() {
   // initialize serial:
     Serial.begin(9600);
@@ -20,12 +21,12 @@
     while(nBits--) {
       digitalWrite(PGD_PIN, b & 1);
       ICSPClock();
-      b >> =1;
+      b >>= 1;
     }
   }
   
   void ICSPSendByteClock(byte b) {
-    ICSPSendBitsClock(b);
+    ICSPSendBitsClock(b,8);
   }
   
   void ICSPEnter() {
@@ -47,5 +48,9 @@
     delay(10);
     // set MCLR PIN
     digitalWrite(MCLR_PIN, HIGH);
+    
+  }
+  
+  void loop() {
     
   }
